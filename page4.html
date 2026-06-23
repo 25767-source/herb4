@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forest Apothecary - ข้อมูลสุขภาพส่วนบุคคล</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fed7ca",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "on-secondary-container": "#795c51",
+                    "on-tertiary-container": "#d29895",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#86af99",
+                    "inverse-surface": "#2f312f",
+                    "primary-fixed": "#c1ecd4",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-container-high": "#e8e8e5",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "outline": "#717973",
+                    "secondary-fixed": "#ffdbce",
+                    "tertiary": "#401b1b",
+                    "surface-bright": "#f9faf6",
+                    "surface": "#f9faf6",
+                    "surface-container-low": "#f3f4f1",
+                    "tertiary-fixed": "#ffdad8",
+                    "on-secondary-fixed": "#2b160f",
+                    "on-surface-variant": "#414844",
+                    "tertiary-fixed-dim": "#f5b7b4",
+                    "on-error": "#ffffff",
+                    "primary-container": "#1b4332",
+                    "on-tertiary-fixed-variant": "#673a39",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eeeeeb",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#3f6653",
+                    "outline-variant": "#c1c8c2",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002114",
+                    "background": "#f9faf6",
+                    "secondary": "#75584d",
+                    "tertiary-container": "#5a302f",
+                    "primary": "#012d1d",
+                    "on-tertiary-fixed": "#331111",
+                    "secondary-fixed-dim": "#e4beb2",
+                    "on-background": "#1a1c1a",
+                    "surface-variant": "#e2e3e0",
+                    "surface-dim": "#dadad7",
+                    "inverse-primary": "#a5d0b9",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5b4137",
+                    "surface-container-highest": "#e2e3e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap": "48px",
+                    "container-padding-desktop": "40px",
+                    "container-padding-mobile": "20px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "title-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "headline-lg": ["Be Vietnam Pro"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-lg-mobile": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ambient-growth-shadow {
+        box-shadow: 0 10px 40px -10px rgba(27, 67, 50, 0.08);
+      }
+      .organic-dot::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: #75584d;
+        border-radius: 50% 20% 50% 20%;
+        margin-right: 12px;
+      }
+      body {
+        background-color: #f9faf6;
+        color: #1a1c1a;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen font-body-md text-body-md pb-24">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-background flex justify-between items-center px-container-padding-mobile h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-size: 28px;">eco</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed font-semibold">Forest Apothecary</h1>
+</div>
+<button class="p-2 text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="max-w-[1200px] mx-auto px-container-padding-mobile md:px-container-padding-desktop mt-8">
+<!-- Header Section -->
+<section class="mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-secondary font-medium tracking-wide font-label-sm text-label-sm uppercase">ข้อมูลส่วนตัวของคุณ</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mt-1">โปรไฟล์สุขภาพดิจิทัล</h2>
+<p class="text-on-surface-variant mt-2 max-w-xl">ข้อมูลนี้ช่วยให้เราคัดกรองสมุนไพรที่มีความปลอดภัยสูงสุดสำหรับสภาวะร่างกายของคุณโดยเฉพาะ</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-title-md text-title-md flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-md">
+<span class="material-symbols-outlined">save</span>
+                    บันทึกข้อมูล
+                </button>
+</div>
+</section>
+<!-- Bento Layout for Profile Information -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Summary Box: Active Safety Filters (Priority) -->
+<div class="md:col-span-12 lg:col-span-4 bg-primary-container text-on-primary-container p-6 rounded-2xl ambient-growth-shadow relative overflow-hidden order-1 lg:order-2">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined">verified_user</span>
+<h3 class="font-title-md text-title-md">ตัวกรองความปลอดภัยที่ใช้งาน</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 bg-white/10 p-3 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<div>
+<p class="font-medium text-white">การคัดกรองความดันโลหิตสูง</p>
+<p class="text-on-primary-container/80 text-sm">จำกัดสมุนไพรที่มีฤทธิ์กระตุ้นการไหลเวียนเลือดรุนแรง</p>
+</div>
+</li>
+<li class="flex items-start gap-3 bg-white/10 p-3 rounded-xl backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<div>
+<p class="font-medium text-white">การตรวจสอบปฏิกิริยาต่อ Warfarin</p>
+<p class="text-on-primary-container/80 text-sm">แจ้งเตือนสมุนไพรที่ส่งผลต่อการแข็งตัวของเลือด</p>
+</div>
+</li>
+</ul>
+<div class="mt-6 pt-4 border-t border-white/10">
+<p class="text-sm italic opacity-70">"ระบบจะปรับคำแนะนำสมุนไพรแบบเรียลไทม์ตามข้อมูลเหล่านี้"</p>
+</div>
+</div>
+<!-- Decorative Botanical Background -->
+<div class="absolute -right-10 -bottom-10 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined" style="font-size: 180px;">psychiatry</span>
+</div>
+</div>
+<!-- Main Form Column -->
+<div class="md:col-span-12 lg:col-span-8 space-y-6 order-2 lg:order-1">
+<!-- Personal Info Card -->
+<div class="bg-white p-6 rounded-2xl ambient-growth-shadow">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="font-title-md text-title-md text-primary">ข้อมูลส่วนตัวพื้นฐาน</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-medium text-on-surface-variant ml-1">ชื่อ-นามสกุล</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" type="text" value="กานต์ธิดา ศิริวิจิตร"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-on-surface-variant ml-1">อายุ (ปี)</label>
+<input class="w-full bg-surface border-outline-variant rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" type="number" value="34"/>
+</div>
+</div>
+</div>
+<!-- Chronic Diseases & Conditions -->
+<div class="bg-white p-6 rounded-2xl ambient-growth-shadow">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+<h3 class="font-title-md text-title-md text-primary">โรคประจำตัวและภาวะสุขภาพ</h3>
+</div>
+<!-- Chips Selection for Diseases -->
+<div class="mb-6">
+<p class="text-sm text-on-surface-variant mb-3">กรุณาเลือกภาวะสุขภาพที่มีผลต่อคุณในปัจจุบัน:</p>
+<div class="flex flex-wrap gap-2">
+<button class="bg-primary-container text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 border border-primary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">eco</span>
+                                ความดันโลหิตสูง (Hypertension)
+                            </button>
+<button class="bg-surface border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xs">eco</span>
+                                เบาหวาน
+                            </button>
+<button class="bg-surface border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xs">eco</span>
+                                โรคหัวใจ
+                            </button>
+<button class="bg-surface border border-outline-variant text-on-surface-variant px-4 py-2 rounded-full text-sm flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xs">eco</span>
+                                ภูมิแพ้เกสร
+                            </button>
+<button class="bg-surface border border-outline-variant text-primary px-4 py-2 rounded-full text-sm flex items-center gap-2 border-dashed">
+<span class="material-symbols-outlined text-xs">add</span>
+                                เพิ่มเติม
+                            </button>
+</div>
+</div>
+<!-- Pregnancy Status (Special Alert Style) -->
+<div class="p-4 rounded-xl border border-secondary-container bg-secondary-container/10 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">pregnant_woman</span>
+<div>
+<p class="font-medium text-secondary">สถานะการตั้งครรภ์/ให้นมบุตร</p>
+<p class="text-sm text-on-secondary-fixed-variant">คุณกำลังตั้งครรภ์หรืออยู่ในช่วงให้นมบุตรหรือไม่?</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+<!-- Current Medications -->
+<div class="bg-white p-6 rounded-2xl ambient-growth-shadow overflow-hidden relative">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">pill</span>
+<h3 class="font-title-md text-title-md text-primary">ยาที่กำลังใช้อยู่</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl border border-outline-variant group hover:border-primary transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">medication</span>
+</div>
+<div>
+<h4 class="font-medium text-on-surface">Warfarin (ยาละลายลิ่มเลือด)</h4>
+<p class="text-sm text-on-surface-variant">ทาน 5mg ทุกเช้า</p>
+</div>
+</div>
+<button class="text-error hover:bg-error-container/20 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<div class="mt-4">
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant flex items-center justify-center gap-2 hover:bg-surface-container-low hover:border-primary transition-all group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">add_circle</span>
+<span>เพิ่มยาตัวใหม่</span>
+</button>
+</div>
+</div>
+<!-- Visual Accent -->
+<div class="absolute -top-10 -right-10 w-40 h-40 opacity-10 pointer-events-none bg-contain bg-no-repeat" data-alt="A macro botanical illustration of a dried herb leaf with delicate veins, positioned as a subtle decorative background element in a clinical health app. The style is minimalist, using soft sage and earthy brown tones against a white background, creating an atmosphere of natural medicine and pharmacy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEKRWiv1OEMklLUoKpTGIalPaqz6uKw3rirKU3qHwvGvYGsnTacFxKHQxXOG2OXSx1pXZ8JbpVFWmn2FihkWmZ_ysB-478tFqr28sO9FHUwt8XiwIcgj0ZAfkoe8bGSOaQ7894wvfQeiXa9a7vIjBup4R1eOv4OZSVXYDlCAzLmhEmkJ_YUaTHhyjsmK8OTFg-N51Mc9ISZcDTbWDkkSxD66oDXGXuTqhCWepRTu3lVvNi6lilsQhJgsMQXVp_Aj5oKirXLXbVW24')"></div>
+</div>
+<!-- Safety Disclaimer -->
+<div class="bg-error-container/30 border border-error/20 p-6 rounded-2xl flex gap-4">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h4 class="font-bold text-error">ข้อควรระวังสำคัญ</h4>
+<p class="text-sm text-on-error-container mt-1">ข้อมูลสุขภาพที่คุณระบุจะถูกนำไปใช้เพื่อการคัดกรองเบื้องต้นเท่านั้น ไม่สามารถทดแทนการวินิจฉัยของแพทย์ได้ หากคุณมีการใช้ยาเฉพาะทางเป็นประจำ ควรปรึกษาแพทย์ก่อนเริ่มทานสมุนไพรใดๆ</p>
+</div>
+</div>
+</div>
+</div>
+<div class="h-16"></div> <!-- Spacer -->
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface dark:bg-inverse-surface z-50 rounded-t-xl shadow-[0_-4px_20px_rgba(27,67,50,0.04)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">center_focus_weak</span>
+<span class="font-label-sm text-label-sm mt-1">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Recipes</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions and subtle effects
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('mousedown', () => {
+                elem.style.transform = 'scale(0.98)';
+            });
+            elem.addEventListener('mouseup', () => {
+                elem.style.transform = 'scale(1)';
+            });
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple form "dirty" check simulation
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                const saveBtn = document.querySelector('button.bg-primary');
+                saveBtn.classList.add('animate-pulse');
+                setTimeout(() => saveBtn.classList.remove('animate-pulse'), 2000);
+            });
+        });
+    </script>
+</body></html>
